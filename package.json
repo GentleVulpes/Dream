@@ -1,0 +1,16 @@
+{
+  "name": "dream-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "cd client && npm install && cd ../server && npm install",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

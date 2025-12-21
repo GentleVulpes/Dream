@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  /* TYPOGRAPHY */
+  /* Dica: Não coloque 'font-weight' aqui. Use 'font-bold' no HTML. */
+  --font-title: "Nunito", sans-serif;
+  --font-text: "Montserrat", sans-serif;
+  --font-brand: "Quicksand", sans-serif;
+
+  /* BASE COLOURS */
+  --color-main-100: #fff1f7;
+  --color-main-200: #ffe5ef;
+  --color-main-300: #ffbfd8;
+  --color-main-400: #ff92bd;
+  --color-main-500: #fd71a8;
+  --color-main-600: #ed5792;
+  --color-main-700: #da427e;
+  --color-main-800: #c2316a;
+  --color-main-900: #a4174f;
+
+  /* EMPHASIS COLOURS */
+  --color-emphasis-100: #e6faff;
+  --color-emphasis-200: #c5edf6;
+  --color-emphasis-300: #a6efff;
+  --color-emphasis-400: #86daed;
+  --color-emphasis-500: #6cc3d7;
+  --color-emphasis-600: #57aec1;
+  --color-emphasis-700: #4697a9;
+  --color-emphasis-800: #368698;
+  --color-emphasis-900: #2b7080;
+  --color-emphasis-950: #1d5865;
+
+  /* SUPPORT COLOURS */
+  --color-support-100: #fffffa;
+  --color-support-200: #e5e5e1;
+  --color-support-300: #ccccc8;
+  --color-support-400: #b2b2af;
+  --color-support-500: #999996;
+  --color-support-600: #80807d;
+  --color-support-700: #666664;
+  --color-support-800: #4d4d4b;
+  --color-support-900: #333332;
+  --color-support-950: #1a1a19;
+
+  /* SHADOWS */
+  --shadow-box-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-box-md: 0 2px 4px rgba(0, 0, 0, 0.15);
+  --shadow-box-lg: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Opcional: Se você quiser garantir o Optical Sizing que o Google recomenda, 
+   adicione isso fora do @theme, aplicando globalmente ou numa classe base */
+@layer base {
+  html {
+    font-optical-sizing: auto;
+  }
+}
+
+@layer components {
+
+  .nav-icon-button {
+    @apply text-main-200 hover:text-emphasis-200 transition-colors cursor-pointer
+  }
+
+  .title-label {
+    @apply font-title font-medium text-lg text-main-200 
+  }
+
+  .button {
+    @apply font-title text-xs text-main-600 bg-main-200 border-3 border-main-600 px-3 py-2 w-fit rounded-sm 
+    hover:text-main-600 hover:bg-main-200 hover:border-main-300;
+  }
+}
