@@ -7,10 +7,6 @@ import React from 'react'
     }
 
 const InputFileMainImage = ({id, label,buttonLabel, ...props}: InputFileMainImageProps) => {
-
-  async function handleClick(event: React.MouseEvent) {
-
-  }
    
   return (
     <div className='flex flex-col'>

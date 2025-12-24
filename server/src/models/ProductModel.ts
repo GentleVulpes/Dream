@@ -1,7 +1,19 @@
 import { Pool, QueryResult } from "pg";
 import { pool } from "../database/index.js";
-import { Product } from "../types/product.entity.js";
+import { Product } from "../types/entities/product.entity.js";
 import { Log } from "../utils/Log.js";
+import { AppError } from "../errors/AppError.js";
+import { DomainTypes } from "../errors/ErrorCatalog.js";
+
+
+
+
+async function executeQuery(domain: DomainTypes,query: string, values: unknown[]) {
+  const result = await pool.query(query, values);
+  if(result.rows.length === 0)
+    throw new AppError(domain, 'INVALID_DATA');
+  return result;
+}
 
 export class ProductModel {
   static gerProductProperties(product: Product) {
@@ -19,23 +31,40 @@ export class ProductModel {
   }
 
   static async insert(product: Product): Promise<Product | null> {
-    const { product_id, ...properties } = product;
-    const values = Object.values(properties);
-
-    const query = `INSERT INTO product(category_id, name, description, price, discount_percentage, stock, is_active, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
-
     try {
+      if (
+        !product ||
+        !product.product_id ||
+        !product.category_id ||
+        !product.name ||
+        !product.description ||
+        !product.price ||
+        !product.discount_percentage ||
+        !product.stock ||
+        !product.is_active ||
+        !product.created_at ||
+        !product.updated_at
+      ) {
+        throw new AppError("Product", "MISSING_PARAMS");
+      }
+      const { product_id, ...properties } = product;
+      const values = Object.values(properties);
+
+      const query = `INSERT INTO product(category_id, name, description, price, discount_percentage, stock, is_active, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`;
+
       const result = await pool.query(query, values);
       if (result.rows.length > 0) {
         Log.writeInformation(
           `Product created with ID: ${result.rows[0].id || "unknown"}`
         );
         return result.rows[0];
-      } else return null;
+      } else {
+        throw new AppError("Product", "");
+      }
     } catch (error) {
-      if (error instanceof Error){
+      if (error instanceof Error) {
         Log.writeError("Error inserting product:", error);
-        console.error('Error inserting product:', error);
+        throw new AppError("Product", "NOT_FOUND");
       }
       return null;
     }

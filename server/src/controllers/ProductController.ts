@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ProductModel } from "../models/ProductModel.js";
-import { Product } from "../types/product.entity.js";
+import { Product } from "../types/entities/product.entity.js";
 import { Log } from "../utils/Log.js";
 export class ProductController {
   getProductProps(body: any): Product | null {
@@ -31,6 +31,7 @@ export class ProductController {
       };
 
       if (
+        !newProduct ||
         !newProduct.product_id ||
         !newProduct.category_id ||
         !newProduct.name ||
@@ -51,7 +52,7 @@ export class ProductController {
       }
       return newProduct;
     }
-  }
+  // }
   async create(req: Request, res: Response) {
     const result = ProductModel.insert(
       this.getProductProps(req.body) as Product

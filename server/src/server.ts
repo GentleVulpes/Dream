@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.send('API do Dream App está online! 🚀');
 });
 
-app.post('/admin/register_product')
+
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);
