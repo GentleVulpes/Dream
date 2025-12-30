@@ -1,5 +1,5 @@
 import { error } from "node:console";
-import { ErrorResponse } from "../types/ErrorResponse.js";
+import { ErrorResponse } from "../types/errors/ErrorResponse.type.js";
 import { ErrorCatalog, DomainTypes } from "./ErrorCatalog.js";
 
 export class AppError<D extends DomainTypes> extends Error {

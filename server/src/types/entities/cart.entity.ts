@@ -5,3 +5,12 @@ export interface Cart {
     created_at: Date;
     updated_at: Date;
 }
+
+export interface NewCart {
+    customer_id: number;
+}
+
+export interface UpdatedCart {
+    customer_id: number;
+    status: string;
+}

@@ -10,6 +10,29 @@ export interface Address {
     city: string;
     state: string;
     zip_code: string;
-    created_at?: Date;
-    updated_at?: Date;
+    created_at: Date;
+    updated_at: Date;
+}
+
+export interface NewAddress {
+    customer_id: number;
+    label: string;
+    street: string;
+    number: string;
+    complement: string;
+    district: string;
+    city: string;
+    state: string;
+    zip_code: string;
+}
+
+export interface UpdatedAdress {
+    label: string;
+    street: string;
+    number: string;
+    complement: string;
+    district: string;
+    city: string;
+    state: string;
+    zip_code: string;
 }
