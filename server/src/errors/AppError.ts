@@ -15,7 +15,7 @@ export class AppError<D extends DomainTypes> extends Error {
 
         if(!errorDef) {
             super('Unknown Error');
-            this.statusCode = 500;  
+            this.statusCode = 500;      
             this.domain = domain;
             this.type = 'UNKNOWN';
             this.isOperational = false;

@@ -1,9 +1,9 @@
 import { createDomainErrors } from "../ErrorFactory.js";
 
-const standardErrors = createDomainErrors('Product');
+const standardErrors = createDomainErrors('Customer');
 
 export const ProductErrors = {
-    ...standardErrors,
+     ...standardErrors,
 
     NEGATIVE_PRICE: {
         message: "Product price cannot be negative or zero.",

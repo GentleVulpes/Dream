@@ -14,3 +14,6 @@ export interface UpdatedCart {
     customer_id: number;
     status: string;
 }
+
+export type CartKey = Pick<Cart, 'cart_id'>;
+

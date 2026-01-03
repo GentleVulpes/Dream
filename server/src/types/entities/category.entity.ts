@@ -13,3 +13,5 @@ export interface UpdatedCategory {
   name: string,
   is_active: boolean
 }
+
+export type CategoryKey = Pick<Category, 'category_id'>;

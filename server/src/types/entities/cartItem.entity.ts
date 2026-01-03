@@ -1,3 +1,5 @@
+import { Cart } from "./cart.entity.js";
+
 export interface CartItem {
     cart_id: number;
     product_id: number;
@@ -15,8 +17,8 @@ export interface NewCartItem {
 }
 
 export interface UpdatedCartItem {
-    cart_id: number;
-    product_id: number;
     quantity: number;
     unity_price_at_moment: number;
 }
+
+export type CartItemKey = Pick<CartItem, 'cart_id' | 'product_id'>;

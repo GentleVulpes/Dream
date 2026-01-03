@@ -7,13 +7,13 @@ import { ProductErrors } from "./domains/ProductErrors.js";
 import { ProductImageErrors } from "./domains/ProductImageErrors.js";
 
 export const ErrorCatalog = {
-  Category: CategoryErrors,
-  Product: ProductErrors,
-  ProductImage: ProductImageErrors,
-  Customer: CustomerErrors,
-  Address: AddressErrors,
-  Cart: CartErrors,
-  CartItem: CartItemErrors,
+  category: CategoryErrors,
+  product: ProductErrors,
+  product_image: ProductImageErrors,
+  customer: CustomerErrors,
+  address: AddressErrors,
+  cart: CartErrors,
+  cart_item: CartItemErrors,
 } as const;
 
 export type DomainTypes = keyof typeof ErrorCatalog;

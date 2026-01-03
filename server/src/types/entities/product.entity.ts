@@ -21,7 +21,6 @@ export interface NewProduct {
 }
 
 export interface UpdatedProduct {
-  product_id: number;
   category_id: number;
   name: string;
   description: string;
@@ -30,3 +29,5 @@ export interface UpdatedProduct {
   stock: number;
   is_active: boolean;
 }
+
+export type ProductKey = Pick<Product, 'product_id'>;

@@ -20,8 +20,11 @@ export interface NewCustomer {
 }
 
 export interface UpdatedCustomer {
+  customer_id: number;
   name: string;
   email: string;
   phone: string;
   password_hash: string;
 }
+
+export type CustomerKey = Pick<Customer, 'customer_id'>

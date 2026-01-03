@@ -26,7 +26,7 @@ export interface NewAddress {
     zip_code: string;
 }
 
-export interface UpdatedAdress {
+export interface UpdatedAddress {
     label: string;
     street: string;
     number: string;
@@ -36,3 +36,5 @@ export interface UpdatedAdress {
     state: string;
     zip_code: string;
 }
+
+export type AddressKey = Pick<Address, 'address_id' | 'customer_id'>;
